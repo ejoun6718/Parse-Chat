@@ -25,6 +25,13 @@ class LoginViewController: UIViewController {
     super.viewDidLoad()
     
     // Do any additional setup after loading the view.
+    Parse.initialize(
+      with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
+        configuration.applicationId = "Instagram"
+        configuration.clientKey = "kj3fu2tfq8hiuwekhfjo8b23q9ohushj[]9ujf2kllfj8"
+        configuration.server = "http://instagram.herokuapp.com"
+      }))
+    
   }
   
   override func didReceiveMemoryWarning() {

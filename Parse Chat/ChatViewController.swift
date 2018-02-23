@@ -15,10 +15,11 @@ class ChatViewController: UIViewController, UITableViewDataSource {
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var chatMessageField: UITextField!
+  
   @IBAction func onSend(_ sender: Any) {
     let chatMessage = PFObject(className: "Message")
     chatMessage["text"] = chatMessageField.text ?? ""
-    chatMessage["user"] = PFUser.current()?.username
+    chatMessage["user"] = PFUser.current()
     chatMessage.saveInBackground { (success, error) in
       if success {
         print("The message was saved!")
@@ -51,7 +52,7 @@ class ChatViewController: UIViewController, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
     cell.selectionStyle = .none
-
+    
     cell.messageLabel.text = messages[indexPath.row]["text"] as? String
     
     if let user = messages[indexPath.row]["user"] as? PFUser {

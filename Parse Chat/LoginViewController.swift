@@ -15,15 +15,15 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var passwordLabel: UITextField!
   
   @IBAction func onSignIn(_ sender: Any) {
-      loginUser()
+    loginUser()
   }
   @IBAction func onSignUp(_ sender: Any) {
-      registerUser()
+    registerUser()
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     // Do any additional setup after loading the view.
   }
   

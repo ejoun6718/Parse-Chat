@@ -23,15 +23,8 @@ class LoginViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     // Do any additional setup after loading the view.
-    Parse.initialize(
-      with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
-        configuration.applicationId = "Instagram"
-        configuration.clientKey = "kj3fu2tfq8hiuwekhfjo8b23q9ohushj[]9ujf2kllfj8"
-        configuration.server = "http://instagram.herokuapp.com"
-      }))
-    
   }
   
   override func didReceiveMemoryWarning() {
@@ -73,7 +66,6 @@ class LoginViewController: UIViewController {
           print(error.localizedDescription)
         } else {
           print("User Registered successfully")
-          // manually segue to logged in view
         }
       }
     }
@@ -91,27 +83,6 @@ class LoginViewController: UIViewController {
           print("User logged in successfully")
           // display view controller that needs to shown after successful login
           self.performSegue(withIdentifier: "loginSegue", sender: nil)
-        }
-      }
-    }
-    
-    func registerUser() {
-      // initialize a user object
-      let newUser = PFUser()
-      
-      // set user properties
-      newUser.username = usernameLabel.text
-      newUser.password = passwordLabel.text
-      
-      if(check()) {
-        // call sign up function on the object
-        newUser.signUpInBackground { (success: Bool, error: Error?) in
-          if let error = error {
-            print(error.localizedDescription)
-          } else {
-            print("User Registered successfully")
-            // manually segue to logged in view
-          }
         }
       }
     }

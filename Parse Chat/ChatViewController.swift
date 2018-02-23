@@ -9,8 +9,14 @@
 import UIKit
 import Parse
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, UITableViewDataSource {
   
+  @IBOutlet weak var tableView: UITableView! {
+    didSet {
+      tableView.rowHeight = UITableViewAutomaticDimension
+      tableView.estimatedRowHeight = 50
+    }
+  }
   @IBOutlet weak var chatMessageField: UITextField!
   @IBAction func onSend(_ sender: Any) {
     let chatMessage = PFObject(className: "Message")
@@ -34,5 +40,14 @@ class ChatViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 1
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
+    return cell
   }
 }

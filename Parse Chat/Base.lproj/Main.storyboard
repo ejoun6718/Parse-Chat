@@ -127,6 +127,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="8bv-mO-ibD" secondAttribute="trailing" constant="8" id="t33-jO-awL"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageLabel" destination="8bv-mO-ibD" id="vGk-WZ-DRK"/>
+                                            <outlet property="usernameLabel" destination="ci0-SE-x8S" id="cgU-05-oOf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

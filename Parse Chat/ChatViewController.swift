@@ -37,6 +37,7 @@ class ChatViewController: UIViewController, UITableViewDataSource {
     tableView.dataSource = self
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 50
+    
     Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refresh), userInfo: nil, repeats: true)
   }
   
